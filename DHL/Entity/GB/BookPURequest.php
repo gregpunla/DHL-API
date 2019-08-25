@@ -63,7 +63,7 @@ class BookPURequest extends Base
             'enumeration' => 'AP,EU,AM',
         ), 
         'Requestor' => array(
-            'type' => 'string',
+            'type' => 'Requestor',
             'required' => false,
             'subobject' => false,
         ), 

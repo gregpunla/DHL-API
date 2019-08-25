@@ -54,7 +54,7 @@ class BookPickupRequest extends Base
      */
     protected $_bodyParams = array(
         'Requestor' => array(
-            'type' => 'string',
+            'type' => 'Requestor',
             'required' => false,
             'subobject' => false,
         ), 
