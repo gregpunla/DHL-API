@@ -5,13 +5,6 @@
 Al-Fallouji Bashar 
     - bashar@alfallouji.com
 
-    
-## Documentation and download
-
-
-Latest version is available on github at :
-    - http://github.com/alfallouji/DHL-API/
-
 
 ## License
 
