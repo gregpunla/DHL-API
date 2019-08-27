@@ -49,6 +49,28 @@ class BookPURequest extends Base
     protected $_serviceXSD = 'BookPURequest.xsd';
 
     /**
+     * Version of schema to be used
+     *
+     * @var string
+     */
+    protected $_schemaVersion = '3.0';
+
+    protected $_displaySchemaVersion = true;
+
+    protected $_headerMetaParams = [
+        'SoftwareName' => [
+            'type' => 'string',
+            'required' => true,
+            'subobject' => false,
+        ],
+        'SoftwareVersion' => [
+            'type' => 'string',
+            'required' => true,
+            'subobject' => false,
+        ],
+    ];
+
+    /**
      * Parameters to be send in the body
      * @var array
      */
@@ -65,7 +87,7 @@ class BookPURequest extends Base
         'Requestor' => array(
             'type' => 'Requestor',
             'required' => false,
-            'subobject' => false,
+            'subobject' => true,
         ), 
         'Place' => array(
             'type' => 'Place',
@@ -73,14 +95,14 @@ class BookPURequest extends Base
             'subobject' => true,
         ), 
         'Pickup' => array(
-            'type' => 'string',
+            'type' => 'Pickup',
             'required' => false,
-            'subobject' => false,
+            'subobject' => true,
         ), 
         'PickupContact' => array(
-            'type' => 'string',
+            'type' => 'PickupContact',
             'required' => false,
-            'subobject' => false,
+            'subobject' => true,
         ), 
         'ShipmentDetails' => array(
             'type' => 'ShipmentDetails',

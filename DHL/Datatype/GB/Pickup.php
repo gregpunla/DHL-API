@@ -15,21 +15,18 @@
  */
 
 /**
- * File:        Requestor.php
+ * File:        RequestorContact.php
  * Project:     DHL API
  *
- * @author      Al-Fallouji Bashar
+ * @author      Mark Cornelio
  * @version     0.1
  */
 
-namespace DHL\Datatype\GB; 
+namespace DHL\Datatype\GB;
 
 use DHL\Datatype\Base;
 
-/**
- * Requestor Request model for DHL API
- */
-class Requestor extends Base
+class Pickup extends Base
 {
     /**
      * Is this object a subobject
@@ -37,68 +34,75 @@ class Requestor extends Base
      */
     protected $_isSubobject = true;
 
-    /**
-     * Parameters of the datatype
-     * @var array
-     */
     protected $_params = array(
-        'AccountType' => array(
+        'PickupDate' => array(
+            'type' => 'date',
+            'required' => true,
+            'subobject' => false,
+            'comment' => 'Pickup Date',
+        ),
+        'PickupTypeCode' => array(
             'type' => 'string',
             'required' => true,
             'subobject' => false,
-            'comment' => 'Account type',
+            'comment' => '',
+            'enumaration' => 'A,S'
         ),
-        'AccountNumber' => array(
+        'ReadyByTime' => array(
             'type' => 'string',
             'required' => true,
             'subobject' => false,
-            'comment' => 'Account number',
+            'comment' => '',
+            'pattern' => '([0-1][0-9]|2[0-3]):([0-5][0-9])'
         ),
-        'RequestorContact' => array(
-            'type' => 'RequestorContact',
-            'required' => true,
-            'subobject' => true,
-            'comment' => 'Requestor Contact'
-        ),
-        'CompanyName' => array(
-            'type' => 'string',
-            'required' => false,
-            'subobject' => false,
-        ),
-        'Address1' => array(
+        'CloseTime' => array(
             'type' => 'string',
             'required' => true,
             'subobject' => false,
+            'coment' => '',
+            'pattern' => '([0-1][0-9]|2[0-3]):([0-5][0-9])'
         ),
-        'Address2' => array(
+        'AfterHoursClosingTime' => array(
             'type' => 'string',
             'required' => false,
-            'subobject' => false
+            'subobject' => false,
+            'comment' => ''
         ),
-        'Address3' => array(
+        'AfterHoursLocation' => array(
             'type' => 'string',
             'required' => false,
-            'subobject' => false
+            'subobject' => false,
+            'comment' => ''
         ),
-        'City' => array(
-            'type' => 'string',
-            'required' => true,
-            'subobject' => false
+        'Pieces' => array(
+            'type' => 'positiveInteger',
+            'required' => false,
+            'subobject' => false,
+            'comment' => ''
         ),
-        'CountryCode' => array(
-            'type' => 'string',
-            'required' => true,
-            'subobject' => false
+        'weight' => array(
+            'type' => 'Weight',
+            'required' => false,
+            'subobject' => false,
+            'comment' => ''
         ),
-        'DivisionName' => array(
+        'RemotePickupFlag' => array(
             'type' => 'string',
             'required' => false,
-            'subobject' => false
+            'subobject' => false,
+            'comment' => ''
         ),
-        'PostalCode' => array(
+        'SpecialInstructions' => array(
             'type' => 'string',
             'required' => false,
-            'subobject' => false
+            'subobject' => false,
+            'comment' => ''
+        ),
+        'Remarks' => array(
+            'type' => 'string',
+            'required' => false,
+            'subobject' => false,
+            ''
         )
     );
 }
