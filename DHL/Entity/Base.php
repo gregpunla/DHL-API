@@ -170,7 +170,7 @@ abstract class Base extends BaseDataType
 
         if (!empty($this->_headerMetaParams)) {
             $xmlWriter->startElement('MetaData');
-            foreach ($this->header_meta_params as $name => $infos) {
+            foreach ($this->_headerMetaParams as $name => $infos) {
                 $xmlWriter->writeElement($name, $this->$name);
             }
             $xmlWriter->endElement(); // End of MetaData
