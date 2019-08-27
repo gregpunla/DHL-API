@@ -15,7 +15,7 @@
  */
 
 /**
- * File:        CancelPUResponse.php
+ * File:        CancelPURequest.php
  * Project:     DHL API
  *
  * @author      Al-Fallouji Bashar
@@ -26,9 +26,9 @@ namespace DHL\Entity\GB;
 use DHL\Entity\Base;
 
 /**
- * CancelPUResponse Request model for DHL API
+ * CancelPURequest Request model for DHL API
  */
-class CancelPUResponse extends Base
+class CancelPURequest extends Base
 {
     /**
      * Is this object a subobject
@@ -40,24 +40,49 @@ class CancelPUResponse extends Base
      * Name of the service
      * @var string
      */
-    protected $_serviceName = 'CancelPUResponse';
+    protected $_serviceName = 'CancelPURequest';
 
     /**
      * @var string
      * Service XSD
      */
-    protected $_serviceXSD = 'CancelPUResponse.xsd';
+    protected $_serviceXSD = 'CancelPURequest.xsd';
+
+    /**
+     * Schema Version
+     * @var string
+     */
+    protected $_schemaVersion = '3.0';
+
+    /**
+     * display the schema version
+     * @var boolean
+     */
+    protected $_displaySchemaVersion = true;
+
+    /**
+     * Header Meta Params
+     *
+     * @var array
+     */
+    protected $_headerMetaParams = [
+        'SoftwareName' => [
+            'type' => 'string',
+            'required' => true,
+            'subobject' => false,
+        ],
+        'SoftwareVersion' => [
+            'type' => 'string',
+            'required' => true,
+            'subobject' => false,
+        ],
+    ];
 
     /**
      * Parameters to be send in the body
      * @var array
      */
     protected $_bodyParams = array(
-        'Response' => array(
-            'type' => 'Response',
-            'required' => false,
-            'subobject' => true,
-        ), 
         'RegionCode' => array(
             'type' => 'string',
             'required' => false,
@@ -66,55 +91,24 @@ class CancelPUResponse extends Base
             'minLength' => '2',
             'maxLength' => '2',
             'enumeration' => 'AP,EU,AM',
-        ), 
-        'Note' => array(
-            'type' => 'Note',
-            'required' => false,
-            'subobject' => true,
-        ), 
+        ),
         'ConfirmationNumber' => array(
             'type' => 'string',
             'required' => false,
             'subobject' => false,
-            'minInclusive' => '1',
-            'maxInclusive' => '999999999',
         ), 
-        'ReadyByTime' => array(
+        'RequestorName' => array(
             'type' => 'string',
             'required' => false,
             'subobject' => false,
+            'maxLength' => '35',
         ), 
-        'SecondReadyByTime' => array(
+        'CountryCode' => array(
             'type' => 'string',
             'required' => false,
             'subobject' => false,
-        ), 
-        'NextPickupDate' => array(
-            'type' => 'string',
-            'required' => false,
-            'subobject' => false,
-        ), 
-        'PickupCharge' => array(
-            'type' => 'string',
-            'required' => false,
-            'subobject' => false,
-        ), 
-        'CurrencyCode' => array(
-            'type' => 'string',
-            'required' => false,
-            'subobject' => false,
-            'comment' => 'ISO currency code',
-            'length' => '3',
-        ), 
-        'CallInTime' => array(
-            'type' => 'string',
-            'required' => false,
-            'subobject' => false,
-        ), 
-        'SecondCallInTime' => array(
-            'type' => 'string',
-            'required' => false,
-            'subobject' => false,
+            'comment' => 'ISO country codes',
+            'length' => '2',
         ), 
         'OriginSvcArea' => array(
             'type' => 'string',
@@ -123,12 +117,23 @@ class CancelPUResponse extends Base
             'minLength' => '3',
             'maxLength' => '3',
         ), 
-        'CountryCode' => array(
+        'Reason' => array(
             'type' => 'string',
             'required' => false,
             'subobject' => false,
-            'comment' => 'ISO country codes',
-            'length' => '2',
+            'maxLength' => '3',
+            'minLength' => '3',
+            'enumeration' => '001,002,003,004,005,006,007,008',
+        ), 
+        'PickupDate' => array(
+            'type' => 'string',
+            'required' => false,
+            'subobject' => false,
+        ), 
+        'CancelTime' => array(
+            'type' => 'string',
+            'required' => false,
+            'subobject' => false,
         ), 
     );
 }
