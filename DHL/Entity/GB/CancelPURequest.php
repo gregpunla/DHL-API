@@ -49,6 +49,36 @@ class CancelPURequest extends Base
     protected $_serviceXSD = 'CancelPURequest.xsd';
 
     /**
+     * Schema Version
+     * @var string
+     */
+    protected $_schemaVersion = '3.0';
+
+    /**
+     * display the schema version
+     * @var boolean
+     */
+    protected $_displaySchemaVersion = true;
+
+    /**
+     * Header Meta Params
+     *
+     * @var array
+     */
+    protected $_headerMetaParams = [
+        'SoftwareName' => [
+            'type' => 'string',
+            'required' => true,
+            'subobject' => false,
+        ],
+        'SoftwareVersion' => [
+            'type' => 'string',
+            'required' => true,
+            'subobject' => false,
+        ],
+    ];
+
+    /**
      * Parameters to be send in the body
      * @var array
      */
@@ -61,13 +91,11 @@ class CancelPURequest extends Base
             'minLength' => '2',
             'maxLength' => '2',
             'enumeration' => 'AP,EU,AM',
-        ), 
+        ),
         'ConfirmationNumber' => array(
             'type' => 'string',
             'required' => false,
             'subobject' => false,
-            'minInclusive' => '1',
-            'maxInclusive' => '999999999',
         ), 
         'RequestorName' => array(
             'type' => 'string',
