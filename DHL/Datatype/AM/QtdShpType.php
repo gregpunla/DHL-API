@@ -58,7 +58,9 @@ class QtdShpType extends Base
             'subobject' => false,
         ), 
         'QtdShpExChrg' => array(
+            'disableParentNode' => true,
             'type' => 'QtdShpExChrgType',
+            'multivalues' => true,
             'required' => false,
             'subobject' => true,
         ), 
